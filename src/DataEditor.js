@@ -4,21 +4,21 @@ import PropTypes from 'prop-types'
 import CellShape from './CellShape'
 
 export default class DataEditor extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount () {
-    this._input.focus()
+  componentDidMount() {
+    this._input.focus() // 自动聚焦
   }
 
-  handleChange (e) {
+  handleChange(e) {
     this.props.onChange(e.target.value)
   }
 
-  render () {
-    const {value, onKeyDown} = this.props
+  render() {
+    const { value, onKeyDown } = this.props
     return (
       <input
         ref={input => { this._input = input }}

@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import CellShape from './CellShape'
 
 export default class Cell extends PureComponent {
-  render () {
+  render() {
     const {
-          cell, row, col, attributesRenderer,
-          className, style, onMouseDown, onMouseOver, onDoubleClick, onContextMenu
-        } = this.props
+      cell, row, col, attributesRenderer,
+      className, style, onMouseDown, onMouseOver, onDoubleClick, onContextMenu
+    } = this.props
 
-    const {colSpan, rowSpan} = cell
+    const { colSpan, rowSpan } = cell
+    // 通过 attributesRenderer 传入 cell、row、col 计算单元格属性
     const attributes = attributesRenderer ? attributesRenderer(cell, row, col) : {}
 
     return (
@@ -31,7 +32,7 @@ export default class Cell extends PureComponent {
   }
 }
 
-Cell.propTypes = {
+Cell.propTypes = { // 所有的传入属性都可被自定义的 cellRenderer 使用
   row: PropTypes.number.isRequired,
   col: PropTypes.number.isRequired,
   cell: PropTypes.shape(CellShape).isRequired,
@@ -51,5 +52,5 @@ Cell.defaultProps = {
   selected: false,
   editing: false,
   updated: false,
-  attributesRenderer: () => {}
+  attributesRenderer: () => { }
 }

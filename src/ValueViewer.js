@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import CellShape from './CellShape'
 
-export default class ValueViewer extends PureComponent {
-  render () {
-    const {value} = this.props
+export default class ValueViewer extends PureComponent { // 渲染最为普通的单元格
+  render() {
+    const { value } = this.props
     return (
       <span className='value-viewer'>
         {value}
